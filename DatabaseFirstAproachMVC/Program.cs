@@ -1,7 +1,15 @@
+using DatabaseFirstAproachMVC.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//sql servere connecton string configuratkion
+var provider = builder.Services.BuildServiceProvider();
+var config = provider.GetRequiredService<IConfiguration>();
+builder.Services.AddDbContext<DatabaseFirstApproachContext>(item => item.UseSqlServer(config.GetConnectionString("Default")));
 
 var app = builder.Build();
 
