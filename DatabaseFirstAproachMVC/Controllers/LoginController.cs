@@ -24,7 +24,7 @@ namespace DatabaseFirstAproachMVC.Controllers
             //    new SelectListItem{ Value = "female" ,Text = "female"}
             //};
             //ViewBag.gender = gender;
-            return View(s);
+            return View();
         }
         [HttpPost]
         public async Task<ActionResult> Index(TblUser user)
