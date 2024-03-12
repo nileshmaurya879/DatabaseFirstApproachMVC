@@ -14,5 +14,6 @@ namespace DatabaseFirstAproachMVC.Models
         [Required]
         [DataType(DataType.Password)]
         public string? UserPassword { get; set; }
+        public string? Gender { get; set; }
     }
 }
