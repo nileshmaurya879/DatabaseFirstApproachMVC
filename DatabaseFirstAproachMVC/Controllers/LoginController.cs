@@ -64,6 +64,12 @@ namespace DatabaseFirstAproachMVC.Controllers
         }
         public ActionResult Registration()
         {
+            List<SelectListItem> gender = new()
+            {
+                new SelectListItem{ Value = "male" ,Text = "male"},
+                new SelectListItem{ Value = "female" ,Text = "female"}
+            };
+            ViewBag.gender = gender;
             return View();
         }
         [HttpPost]

@@ -40,10 +40,10 @@
 @*Type-2*@
 @*<label class="form-label">Select Gender:</label>
 @Html.DropDownList("Gender",ViewBag.gender,"Select Gender",new {@class = "form-control"})*@
-<label class="form-label">Select Gender:</label>
+@*<label class="form-label">Select Gender:</label>
 <select name="gender" asp-items="ViewBag.gender" class="form-control">
     <option value="">Select option</option>
-</select>
+</select>*@
 
 @section Scripts {
     @{
