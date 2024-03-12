@@ -1,0 +1,52 @@
+﻿@model DatabaseFirstAproachMVC.Models.TblUser
+@using DatabaseFirstAproachMVC.Controllers
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sign In Page</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserPassword" class="control-label"></label>
+                <input asp-for="UserPassword" class="form-control" />
+                <span asp-validation-for="UserPassword" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <p> <a asp-action="Registration">New Registration</a></p>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@*type 1*@
+@*<label class="form-label">Select Gender:</label>
+@Html.DropDownList("Gender",Html.GetEnumSelectList<LoginController.Gender>(),"Select Gender",new {@class = "form-control"})*@
+
+@*Type-2*@
+@*<label class="form-label">Select Gender:</label>
+@Html.DropDownList("Gender",ViewBag.gender,"Select Gender",new {@class = "form-control"})*@
+<label class="form-label">Select Gender:</label>
+<select name="gender" asp-items="ViewBag.gender" class="form-control">
+    <option value="">Select option</option>
+</select>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
